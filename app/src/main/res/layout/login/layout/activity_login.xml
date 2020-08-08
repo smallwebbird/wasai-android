@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.example.start.pages.login.LoginViewModel" />
+    </data>
+
+    <FrameLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/splash" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="300dp"
+            android:background="@drawable/round_corner"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/login_user_icon"/>
+                <EditText
+                    android:id="@+id/login_name"
+                    android:textColor="@color/colorWhite"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:background="@null"
+                    android:hint="请输入用户名"
+                    android:text="@={loginViewModel.name}"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/login_name_validate"
+                android:visibility="gone"
+                android:textColor="@color/red_500"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请输入账号"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/login_pwd_icon"
+                    android:layout_gravity="center_vertical"/>
+                <EditText
+                    android:id="@+id/login_pwd"
+                    android:textColor="@color/colorWhite"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:background="@null"
+                    android:inputType="textPassword"
+                    android:hint="请输入密码"
+                    android:text="@={loginViewModel.password}"/>
+                <ImageView
+                    android:id="@+id/login_eye"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/login_pwd_hidden"
+                    android:layout_gravity="center_vertical"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/login_pwd_validate"
+                android:visibility="gone"
+                android:textColor="@color/red_500"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请输入密码"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_btn"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="200dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/round_corner"
+            android:text="Log In"/>
+    </FrameLayout>
+</layout>

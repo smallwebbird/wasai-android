@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="guide_icons">
+        <item>@drawable/splash_icon</item>
+        <item>@drawable/splash_icon</item>
+        <item>@drawable/splash_icon</item>
+    </array>
+    <array name="guide_descs">
+        <item>hello</item>
+        <item>world</item>
+        <item>!!!!</item>
+    </array>
+    <array name="guide_bgs">
+        <item>@color/light_green_500</item>
+        <item>@color/amber_500</item>
+        <item>@color/red_400</item>
+    </array>
+</resources>
