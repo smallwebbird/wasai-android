@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.start.data.model.TestModel;
 import com.example.start.data.repository.LoginRepository;
+import com.example.start.pages.custombottomNavigation.CustomTabActivity;
 import com.example.start.pages.home.HomeFragment;
 import com.example.start.utils.CustomApplication;
 import com.example.start.utils.Resource;
@@ -31,10 +32,10 @@ public class LoginViewModel extends ViewModel {
             loginStatus = true;
             login.postValue(resource.success(loginStatus));
             CustomApplication customApplication = CustomApplication.getInstance();
-            Intent homeIntent = new Intent(customApplication, HomeFragment.class);
+            Intent customerBottomNavigationIntent = new Intent(customApplication, CustomTabActivity.class);
             // 使用application的context
-            homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            customApplication.startActivity(homeIntent);
+            customerBottomNavigationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            customApplication.startActivity(customerBottomNavigationIntent);
         } else {
             loginStatus = false;
             login.postValue(resource.error(loginStatus, "密码错误"));

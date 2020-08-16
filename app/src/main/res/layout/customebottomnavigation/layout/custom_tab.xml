@@ -20,7 +20,8 @@
     <com.example.start.pages.custombottomNavigation.CustomTabView
         android:id="@+id/custom_tab_container"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/colorWhite">
 
     </com.example.start.pages.custombottomNavigation.CustomTabView>
 </LinearLayout>

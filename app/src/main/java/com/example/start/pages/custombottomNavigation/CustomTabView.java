@@ -163,28 +163,29 @@ public class CustomTabView extends LinearLayout implements View.OnClickListener 
                 return this;
             }
         }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        if(mTabViews!=null){
-            mTabViews.clear();
-        }
-        if(mTabs!=null){
-            mTabs.clear();
-        }
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        for(int i=0;i<mTabViews.size();i++){
-            View view = mTabViews.get(i);
-            int width = getResources().getDisplayMetrics().widthPixels / (mTabs.size());
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, ViewGroup.LayoutParams.MATCH_PARENT);
-
-            view.setLayoutParams(params);
+        // 当前View与对应的window解除绑定
+        @Override
+        protected void onDetachedFromWindow() {
+            super.onDetachedFromWindow();
+            if(mTabViews!=null){
+                mTabViews.clear();
+            }
+            if(mTabs!=null){
+                mTabs.clear();
+            }
         }
 
-    }
+        // 当前view已经和window绑定
+        @Override
+        protected void onAttachedToWindow() {
+            super.onAttachedToWindow();
+            for(int i=0;i<mTabViews.size();i++){
+                View view = mTabViews.get(i);
+                int width = getResources().getDisplayMetrics().widthPixels / (mTabs.size());
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, ViewGroup.LayoutParams.MATCH_PARENT);
+
+                view.setLayoutParams(params);
+            }
+
+        }
 }

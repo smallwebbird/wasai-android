@@ -13,8 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".pages.home.HomeFragment"
-            android:theme="@style/NoWindowBackground"/>
+            android:name=".pages.custombottomNavigation.CustomTabActivity"
+            android:theme="@style/NoWindowBackground">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".pages.WelcomeGuide"
             android:theme="@style/NoWindowBackground" />
@@ -24,11 +30,11 @@
         <activity
             android:name=".pages.SplashActivity"
             android:theme="@style/Theme.Center">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
 
         <meta-data

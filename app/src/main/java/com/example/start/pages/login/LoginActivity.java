@@ -1,5 +1,6 @@
 package com.example.start.pages.login;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -9,6 +10,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -17,19 +19,24 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.bumptech.glide.Glide;
 import com.example.start.base.ViewModelFactory;
 import com.example.start.data.api.ApiHelper;
 import com.example.start.data.api.ApiServiceImpl;
 import com.example.start.databinding.ActivityLoginBinding;
 import com.example.start.R;
+import com.example.start.pages.customBanner.CustomBanner;
 import com.example.start.utils.Resource;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
     private boolean pwdVisible = false;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

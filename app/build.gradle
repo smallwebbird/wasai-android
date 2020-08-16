@@ -6,7 +6,7 @@ android {
     buildToolsVersion "29.0.1"
     defaultConfig {
         applicationId "com.example.start"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -26,7 +26,11 @@ android {
     sourceSets {
         main {
             res.srcDirs =
-                    [       'src/main/res/layout/customebottomnavigation',
+                    [       'src/main/res/layout/customrefresh',
+                            'src/main/res/layout/test1',
+                            'src/main/res/layout/test2',
+                            'src/main/res/layout/mine',
+                            'src/main/res/layout/customebottomnavigation',
                             'src/main/res/layout/home',
                             'src/main/res/layout/login',
                             'src/main/res/layout/welcome_guide',
@@ -55,4 +59,6 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.18'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
 }

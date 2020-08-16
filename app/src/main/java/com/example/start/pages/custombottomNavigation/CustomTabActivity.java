@@ -1,6 +1,8 @@
 package com.example.start.pages.custombottomNavigation;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +13,7 @@ import com.example.start.pages.mine.MineFragment;
 
 import com.example.start.R;
 
-public class CustomTabActivity extends AppCompatActivity {
+public class CustomTabActivity extends AppCompatActivity implements CustomTabView.OnTabCheckListener {
     private CustomTabView mCustomTabView;
     private Fragment[] mFragmensts;
     @Override
@@ -34,41 +36,27 @@ public class CustomTabActivity extends AppCompatActivity {
         mCustomTabView = (CustomTabView) findViewById(R.id.custom_tab_container);
         CustomTabView.Tab tabHome = new CustomTabView.Tab().setText("首页")
                 .setColor(getResources().getColor(android.R.color.darker_gray))
-                .setCheckedColor(getResources().getColor(android.R.color.black))
-                .setNormalIcon(R.drawable.ic_tab_strip_icon_feed)
-                .setPressedIcon(R.drawable.ic_tab_strip_icon_feed_selected);
+                .setCheckedColor(getResources().getColor(R.color.tabCheckedColor))
+                .setNormalIcon(R.drawable.tab_home_icon)
+                .setPressedIcon(R.drawable.tab_home_checked_icon);
         mCustomTabView.addTab(tabHome);
-        CustomTabView.Tab tabDis = new CustomTabView.Tab().setText("发现")
+        CustomTabView.Tab tabMine = new CustomTabView.Tab().setText("我的")
                 .setColor(getResources().getColor(android.R.color.darker_gray))
-                .setCheckedColor(getResources().getColor(android.R.color.black))
-                .setNormalIcon(R.drawable.ic_tab_strip_icon_category)
-                .setPressedIcon(R.drawable.ic_tab_strip_icon_category_selected);
-        mCustomTabView.addTab(tabDis);
-        CustomTabView.Tab tabAttention = new CustomTabView.Tab().setText("管制")
-                .setColor(getResources().getColor(android.R.color.darker_gray))
-                .setCheckedColor(getResources().getColor(android.R.color.black))
-                .setNormalIcon(R.drawable.ic_tab_strip_icon_pgc)
-                .setPressedIcon(R.drawable.ic_tab_strip_icon_pgc_selected);
-        mCustomTabView.addTab(tabAttention);
-        CustomTabView.Tab tabProfile = new CustomTabView.Tab().setText("我的")
-                .setColor(getResources().getColor(android.R.color.darker_gray))
-                .setCheckedColor(getResources().getColor(android.R.color.black))
-                .setNormalIcon(R.drawable.ic_tab_strip_icon_profile)
-                .setPressedIcon(R.drawable.ic_tab_strip_icon_profile_selected);
-        mCustomTabView.addTab(tabProfile);
+                .setCheckedColor(getResources().getColor(R.color.tabCheckedColor))
+                .setNormalIcon(R.drawable.tab_mine_icon)
+                .setPressedIcon(R.drawable.tab_mine_checked_icon);
+        mCustomTabView.addTab(tabMine);
 
         mCustomTabView.setOnTabCheckListener(this);
 
         mCustomTabView.setCurrentItem(0);
 
     }
-
     @Override
     public void onTabSelected(View v, int position) {
         Log.e("zhouwei","position:"+position);
         onTabItemSelected(position);
     }
-
     private void onTabItemSelected(int position){
         Fragment fragment = null;
         switch (position){
@@ -78,16 +66,9 @@ public class CustomTabActivity extends AppCompatActivity {
             case 1:
                 fragment = mFragmensts[1];
                 break;
-
-            case 2:
-                fragment = mFragmensts[2];
-                break;
-            case 3:
-                fragment = mFragmensts[3];
-                break;
         }
         if(fragment!=null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.home_container,fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.home_container, fragment).commit();
         }
     }
 
